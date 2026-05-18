@@ -131,13 +131,14 @@
   </section>
 
   <!-- FORM -->
-  <form id="surveyForm" action="https://formsubmit.co/dardilap@gmail.com" method="POST" class="space-y-12">
-    <!-- formsubmit.co config -->
-    <input type="hidden" name="_subject" value="Aurora CISO Survey - Nueva respuesta" />
-    <input type="hidden" name="_template" value="table" />
-    <input type="hidden" name="_captcha" value="false" />
-    <input type="hidden" name="_autoresponse" value="Gracias por completar la encuesta Aurora. Le contactaremos con el benchmark anónimo en las próximas 2 semanas." />
-    <input type="hidden" name="_next" value="https://dardilap.github.io/aurora-survey/thank-you.html" />
+  <form id="surveyForm" action="https://api.web3forms.com/submit" method="POST" class="space-y-12">
+    <!-- Web3Forms config -->
+    <!-- IMPORTANT: owner debe reemplazar YOUR_ACCESS_KEY_HERE con el key de https://web3forms.com -->
+    <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE" />
+    <input type="hidden" name="subject" value="Aurora CISO Survey - Nueva respuesta" />
+    <input type="hidden" name="from_name" value="Aurora Survey" />
+    <input type="hidden" name="redirect" value="https://dardilap.github.io/aurora-survey/thank-you.html" />
+    <input type="checkbox" name="botcheck" class="hidden" style="display:none" />
 
     <!-- =================================================== -->
     <!-- SECCIÓN A — Aurora AEAV Fit (5 preguntas) -->
@@ -591,13 +592,26 @@
     </section>
 
     <!-- SUBMIT -->
-    <div class="border-t border-slate-800 pt-10">
+    <div class="border-t border-slate-800 pt-10 space-y-4">
       <button type="submit" id="submitBtn" class="w-full bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white font-semibold py-4 px-6 rounded-xl text-lg transition shadow-lg shadow-purple-500/20">
-        Enviar respuestas
+        Enviar respuestas online
       </button>
+
+      <div class="flex items-center gap-3">
+        <div class="flex-1 h-px bg-slate-800"></div>
+        <span class="text-xs text-slate-500 uppercase tracking-wider">o</span>
+        <div class="flex-1 h-px bg-slate-800"></div>
+      </div>
+
+      <button type="button" id="emailFallbackBtn" class="w-full border border-slate-700 hover:border-purple-500 hover:bg-purple-500/5 text-slate-200 font-medium py-3 px-6 rounded-xl transition flex items-center justify-center gap-2">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+        <span>Enviar por email directo (más privado)</span>
+      </button>
+
       <p class="text-center text-xs text-slate-500 mt-4">
         Al enviar acepta los términos de confidencialidad descritos arriba.
-        Recibirá email de confirmación.
+        <br />
+        <span class="text-slate-600">Opción email: abre su cliente de email (Outlook/Gmail) con las respuestas pre-cargadas.</span>
       </p>
     </div>
   </form>
@@ -687,6 +701,56 @@
   // Clear localStorage on submit
   form.addEventListener('submit', () => {
     try { localStorage.removeItem(STORAGE_KEY); } catch (e) {}
+  });
+
+  // Email fallback (mailto:) — funciona sin servicio externo
+  document.getElementById('emailFallbackBtn').addEventListener('click', () => {
+    const formData = new FormData(form);
+    const sections = {
+      'A. Sobre Aurora AEAV': ['A1_cfo_pitch', 'A2_pain', 'A2_pain_other', 'A3_trigger', 'A3_trigger_other', 'A4_investment', 'A4_investment_other', 'A5_champion', 'A5_champion_detail'],
+      'B. Programa actual + competition': ['B1_eval', 'B1_eval_other', 'B2_frequency', 'B2_frequency_other', 'B3_competition', 'B3_competition_other', 'B4_soc', 'B4_soc_other'],
+      'C. Concerns y riesgos': ['C1_risks', 'C1_risks_other', 'C2_no_authorize', 'C2_no_authorize_other', 'C3_reputational', 'C4_warranties', 'C4_warranties_other'],
+      'D. Compliance esencial': ['D1_frameworks', 'D1_frameworks_other', 'D2_signature', 'D2_signature_other', 'D3_templates', 'D3_templates_detail'],
+      'E. Decisión + features': ['E1_decision_process', 'E2_top_features', 'E3_integrations_missing'],
+      'F. Demografía': ['F1_industry', 'F1_industry_other', 'F2_size', 'F3_role', 'F3_role_other'],
+      'G. Cierre': ['G1_open_feedback', 'G2_second_call', 'contact_email']
+    };
+
+    let body = 'Encuesta Aurora — Respuestas CISO LATAM\n';
+    body += '='.repeat(60) + '\n\n';
+
+    for (const [sectionName, fieldNames] of Object.entries(sections)) {
+      body += `\n--- ${sectionName} ---\n\n`;
+      for (const fieldName of fieldNames) {
+        const values = formData.getAll(fieldName) || formData.getAll(fieldName + '[]');
+        const allVals = [...formData.getAll(fieldName), ...formData.getAll(fieldName + '[]')];
+        if (allVals.length > 0 && allVals.some(v => v && String(v).trim().length > 0)) {
+          const cleanVals = allVals.filter(v => v && String(v).trim().length > 0);
+          body += `${fieldName}:\n  ${cleanVals.join('\n  ')}\n\n`;
+        }
+      }
+    }
+
+    body += '\n' + '='.repeat(60) + '\n';
+    body += 'Enviado desde Aurora Survey via email directo\n';
+    body += `Fecha: ${new Date().toISOString()}\n`;
+
+    const subject = encodeURIComponent('Aurora CISO Survey - Respuesta');
+    const bodyEnc = encodeURIComponent(body);
+    const mailtoUrl = `mailto:dardilap@gmail.com?subject=${subject}&body=${bodyEnc}`;
+
+    // Mailto URLs tienen límite ~2000 chars en algunos clientes
+    if (mailtoUrl.length > 8000) {
+      const confirm1 = confirm('Sus respuestas son largas y pueden truncarse en algunos clientes de email. ¿Desea continuar? (Recomendación: revise el contenido antes de enviar)');
+      if (!confirm1) return;
+    }
+
+    window.location.href = mailtoUrl;
+
+    // Clear localStorage después del intento
+    setTimeout(() => {
+      try { localStorage.removeItem(STORAGE_KEY); } catch (e) {}
+    }, 1000);
   });
 
   updateProgress();
