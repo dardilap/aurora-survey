@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="es" class="dark">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Aurora — Encuesta CISO LATAM | Adversarial Email Attack Validation</title>
+<meta name="description" content="Validación de propuesta Aurora con CISOs LATAM. 8-10 minutos. Sus respuestas son confidenciales." />
+<meta name="robots" content="noindex, nofollow" />
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  body { font-family: 'Inter', sans-serif; }
+  .smooth-scroll { scroll-behavior: smooth; }
+  fieldset { transition: all 0.2s ease; }
+  fieldset:focus-within {
+    border-color: rgb(168 85 247);
+    background-color: rgb(30 27 75 / 0.3);
+  }
+  .progress-fill { transition: width 0.4s ease; }
+  input[type="radio"], input[type="checkbox"] { accent-color: rgb(168 85 247); }
+  details summary { cursor: pointer; }
+  details summary::-webkit-details-marker { display: none; }
+  input[type="text"], textarea, select {
+    background-color: rgb(15 23 42);
+    border: 1px solid rgb(51 65 85);
+    color: rgb(241 245 249);
+  }
+  input[type="text"]:focus, textarea:focus, select:focus {
+    outline: none;
+    border-color: rgb(168 85 247);
+    box-shadow: 0 0 0 2px rgba(168, 85, 247, 0.2);
+  }
+  label.option-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    padding: 0.75rem 1rem;
+    border: 1px solid rgb(51 65 85);
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: all 0.15s ease;
+  }
+  label.option-card:hover {
+    border-color: rgb(168 85 247);
+    background-color: rgb(168 85 247 / 0.05);
+  }
+  label.option-card:has(input:checked) {
+    border-color: rgb(168 85 247);
+    background-color: rgb(168 85 247 / 0.1);
+  }
+  .section-pill {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+  @media print {
+    body { background: white !important; color: black !important; }
+    .no-print { display: none !important; }
+  }
+</style>
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen smooth-scroll">
+
+<!-- Progress bar fija arriba -->
+<div class="fixed top-0 left-0 right-0 h-1 bg-slate-800 z-50 no-print">
+  <div id="progress" class="progress-fill h-full bg-gradient-to-r from-purple-500 to-indigo-500" style="width: 0%"></div>
+</div>
+
+<!-- HEADER -->
+<header class="border-b border-slate-800 bg-slate-900/50 backdrop-blur-sm">
+  <div class="max-w-3xl mx-auto px-6 py-8">
+    <div class="flex items-center gap-3 mb-2">
+      <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-purple-500 to-indigo-600 flex items-center justify-center">
+        <span class="text-white font-bold text-lg">A</span>
+      </div>
+      <div>
+        <h1 class="text-2xl font-bold text-slate-100">Aurora</h1>
+        <p class="text-xs text-slate-400 uppercase tracking-wider">Adversarial Email Attack Validation</p>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- MAIN -->
+<main class="max-w-3xl mx-auto px-6 py-10">
+
+  <!-- INTRO -->
+  <section class="mb-12">
+    <h2 class="text-3xl font-bold mb-4 text-slate-100">Validación de propuesta — CISO LATAM</h2>
+    <p class="text-slate-300 mb-6 text-lg leading-relaxed">
+      Gracias por la llamada previa. Esta encuesta valida y refina la propuesta de
+      <strong class="text-purple-300">Adversarial Email Attack Validation (AEAV)</strong>
+      que conversamos. Sus respuestas guían el diseño del producto.
+    </p>
+
+    <div class="grid sm:grid-cols-3 gap-4 mb-6">
+      <div class="rounded-lg border border-slate-800 bg-slate-900/50 p-4">
+        <div class="text-purple-400 text-sm font-semibold mb-1">Tiempo estimado</div>
+        <div class="text-slate-100 font-medium">8-10 minutos</div>
+      </div>
+      <div class="rounded-lg border border-slate-800 bg-slate-900/50 p-4">
+        <div class="text-purple-400 text-sm font-semibold mb-1">Preguntas</div>
+        <div class="text-slate-100 font-medium">22 preguntas</div>
+      </div>
+      <div class="rounded-lg border border-slate-800 bg-slate-900/50 p-4">
+        <div class="text-purple-400 text-sm font-semibold mb-1">Como agradecimiento</div>
+        <div class="text-slate-100 font-medium">Benchmark anónimo + sneak preview</div>
+      </div>
+    </div>
+
+    <details class="rounded-lg border border-slate-800 bg-slate-900/30 p-4">
+      <summary class="font-semibold text-slate-200 flex items-center gap-2">
+        <span>Confidencialidad y manejo de sus respuestas</span>
+        <span class="text-purple-400 text-sm">(leer)</span>
+      </summary>
+      <div class="mt-3 space-y-2 text-sm text-slate-400">
+        <p><strong class="text-slate-200">Respuestas individuales nunca se comparten.</strong> Solo agregados anónimos (mínimo n=5 por dato).</p>
+        <p><strong class="text-slate-200">Quién ve la data raw:</strong> solo el owner de Aurora. No se comparte con advisors, equipo extendido ni inversores.</p>
+        <p><strong class="text-slate-200">Retention:</strong> 12 meses desde respuesta. Después se anonimiza permanentemente.</p>
+        <p><strong class="text-slate-200">Right to withdraw:</strong> puede solicitar borrado total escribiendo al email del contacto.</p>
+        <p><strong class="text-slate-200">No-attribution:</strong> citas literales nunca se publicarán sin su consentimiento explícito por escrito.</p>
+        <p><strong class="text-slate-200">Formato preguntas:</strong> mezcla de opciones predefinidas + textarea opcional. Puede elegir opciones, agregar texto, o solo responder con texto si las opciones no aplican.</p>
+      </div>
+    </details>
+  </section>
+
+  <!-- FORM -->
+  <form id="surveyForm" action="https://formsubmit.co/dardilap@gmail.com" method="POST" class="space-y-12">
+    <!-- formsubmit.co config -->
+    <input type="hidden" name="_subject" value="Aurora CISO Survey - Nueva respuesta" />
+    <input type="hidden" name="_template" value="table" />
+    <input type="hidden" name="_captcha" value="false" />
+    <input type="hidden" name="_autoresponse" value="Gracias por completar la encuesta Aurora. Le contactaremos con el benchmark anónimo en las próximas 2 semanas." />
+    <input type="hidden" name="_next" value="https://dardilap.github.io/aurora-survey/thank-you.html" />
+
+    <!-- =================================================== -->
+    <!-- SECCIÓN A — Aurora AEAV Fit (5 preguntas) -->
+    <!-- =================================================== -->
+    <section data-section="A" class="space-y-8">
+      <div>
+        <span class="section-pill bg-purple-500/20 text-purple-300">Sección A</span>
+        <h3 class="text-2xl font-bold mt-2 text-slate-100">Sobre Aurora AEAV</h3>
+        <p class="text-slate-400 text-sm mt-1">5 preguntas para entender el fit con su programa actual</p>
+      </div>
+
+      <!-- A1 -->
+      <fieldset class="border border-slate-800 rounded-xl p-6 bg-slate-900/30 space-y-3">
+        <legend class="px-2 text-base font-semibold text-slate-200">
+          <span class="text-purple-400">A1.</span> Si tuviera que explicar AEAV a su CFO en 2 frases para justificar el gasto, ¿cómo lo diría?
+        </legend>
+        <p class="text-xs text-slate-500 mb-2">Pregunta abierta — responda con sus propias palabras</p>
+        <textarea name="A1_cfo_pitch" rows="4" class="w-full px-4 py-3 rounded-lg" placeholder="Sus 2 frases..."></textarea>
+      </fieldset>
+
+      <!-- A2 -->
+      <fieldset class="border border-slate-800 rounded-xl p-6 bg-slate-900/30 space-y-3">
+        <legend class="px-2 text-base font-semibold text-slate-200">
+          <span class="text-purple-400">A2.</span> ¿Qué escenario de ataque le quita el sueño hoy y siente que NO está validando bien?
+        </legend>
+        <p class="text-xs text-slate-500 mb-3">Eligí los que apliquen y/o agregá su propio escenario</p>
+        <div class="space-y-2">
+          <label class="option-card"><input type="checkbox" name="A2_pain[]" value="BEC sofisticado (CEO/CFO impersonation)" /><span>BEC sofisticado (CEO/CFO impersonation)</span></label>
+          <label class="option-card"><input type="checkbox" name="A2_pain[]" value="AiTM (Adversary-in-the-Middle) que evade MFA" /><span>AiTM que evade MFA (Evilginx, EvilProxy, etc.)</span></label>
+          <label class="option-card"><input type="checkbox" name="A2_pain[]" value="OAuth consent phishing" /><span>OAuth consent phishing</span></label>
+          <label class="option-card"><input type="checkbox" name="A2_pain[]" value="Supply chain email (vendor/proveedor comprometido)" /><span>Supply chain email (vendor/proveedor comprometido)</span></label>
+          <label class="option-card"><input type="checkbox" name="A2_pain[]" value="Lookalike domains que pasan SEG" /><span>Lookalike domains que pasan SEG</span></label>
+          <label class="option-card"><input type="checkbox" name="A2_pain[]" value="QR code phishing (quishing)" /><span>QR code phishing (quishing)</span></label>
+          <label class="option-card"><input type="checkbox" name="A2_pain[]" value="HTML smuggling con payload" /><span>HTML smuggling con payload</span></label>
+          <label class="option-card"><input type="checkbox" name="A2_pain[]" value="Ataques en idiomas locales (español argentino, portugués brasileño)" /><span>Ataques en idiomas locales (es-AR, pt-BR)</span></label>
+        </div>
+        <textarea name="A2_pain_other" rows="2" class="w-full px-4 py-2 rounded-lg mt-3" placeholder="Otro escenario o detalle (opcional)..."></textarea>
+      </fieldset>
+
+      <!-- A3 -->
+      <fieldset class="border border-slate-800 rounded-xl p-6 bg-slate-900/30 space-y-3">
+        <legend class="px-2 text-base font-semibold text-slate-200">
+          <span class="text-purple-400">A3.</span> ¿Hay algún <strong>compelling event</strong> en próximos 6 meses que forzaría priorizar AEAV?
+        </legend>
+        <p class="text-xs text-slate-500 mb-3">Eligí los que apliquen</p>
+        <div class="space-y-2">
+          <label class="option-card"><input type="checkbox" name="A3_trigger[]" value="Auditoría regulatoria próxima" /><span>Auditoría regulatoria próxima (BCRA / SUSEP / SBS / CNBV / otra)</span></label>
+          <label class="option-card"><input type="checkbox" name="A3_trigger[]" value="Renovación de SEG (Defender/Mimecast/Proofpoint)" /><span>Renovación de SEG (Defender/Mimecast/Proofpoint)</span></label>
+          <label class="option-card"><input type="checkbox" name="A3_trigger[]" value="Incidente reciente en la organización o sector" /><span>Incidente reciente en la organización o sector</span></label>
+          <label class="option-card"><input type="checkbox" name="A3_trigger[]" value="Nueva regulación entrando en vigor" /><span>Nueva regulación entrando en vigor</span></label>
+          <label class="option-card"><input type="checkbox" name="A3_trigger[]" value="Presentación al board / due diligence M&A" /><span>Presentación al board / due diligence M&A</span></label>
+          <label class="option-card"><input type="checkbox" name="A3_trigger[]" value="Planificación de presupuesto cyber año siguiente" /><span>Planificación de presupuesto cyber año siguiente</span></label>
+          <label class="option-card"><input type="checkbox" name="A3_trigger[]" value="No hay trigger temporal" /><span>No hay trigger temporal específico</span></label>
+        </div>
+        <textarea name="A3_trigger_other" rows="2" class="w-full px-4 py-2 rounded-lg mt-3" placeholder="Otro trigger o detalle (opcional)..."></textarea>
+      </fieldset>
+
+      <!-- A4 -->
+      <fieldset class="border border-slate-800 rounded-xl p-6 bg-slate-900/30 space-y-3">
+        <legend class="px-2 text-base font-semibold text-slate-200">
+          <span class="text-purple-400">A4.</span> Si Aurora demostrara <strong>reducir BEC exitoso 40%</strong> el primer año, ¿qué nivel de inversión anual lo justificaría?
+        </legend>
+        <p class="text-xs text-slate-500 mb-3">Una opción + comentarios opcionales</p>
+        <div class="space-y-2">
+          <label class="option-card"><input type="radio" name="A4_investment" value="< $20k/año" /><span>Menos de $20k/año</span></label>
+          <label class="option-card"><input type="radio" name="A4_investment" value="$20k - $50k/año" /><span>$20k - $50k/año</span></label>
+          <label class="option-card"><input type="radio" name="A4_investment" value="$50k - $100k/año" /><span>$50k - $100k/año</span></label>
+          <label class="option-card"><input type="radio" name="A4_investment" value="$100k - $250k/año" /><span>$100k - $250k/año</span></label>
+          <label class="option-card"><input type="radio" name="A4_investment" value="$250k+ si el ROI está demostrado" /><span>$250k+ si el ROI está demostrado</span></label>
+          <label class="option-card"><input type="radio" name="A4_investment" value="Depende del modelo (per-validation vs subscription)" /><span>Depende del modelo (per-validation vs subscription)</span></label>
+        </div>
+        <textarea name="A4_investment_other" rows="2" class="w-full px-4 py-2 rounded-lg mt-3" placeholder="Comentarios sobre cómo evaluaría ROI (opcional)..."></textarea>
+      </fieldset>
+
+      <!-- A5 -->
+      <fieldset class="border border-slate-800 rounded-xl p-6 bg-slate-900/30 space-y-3">
+        <legend class="px-2 text-base font-semibold text-slate-200">
+          <span class="text-purple-400">A5.</span> Si Aurora avanzara, ¿quién en su equipo defendería internamente este proyecto frente a CFO/Legal cuando hagan objeciones?
+        </legend>
+        <p class="text-xs text-slate-500 mb-3">Una opción + caracterización opcional</p>
+        <div class="space-y-2">
+          <label class="option-card"><input type="radio" name="A5_champion" value="Yo (CISO) lo defendería personalmente" /><span>Yo (CISO) lo defendería personalmente</span></label>
+          <label class="option-card"><input type="radio" name="A5_champion" value="Deputy CISO / Security Architect" /><span>Deputy CISO / Security Architect</span></label>
+          <label class="option-card"><input type="radio" name="A5_champion" value="Risk Officer / GRC Lead" /><span>Risk Officer / GRC Lead</span></label>
+          <label class="option-card"><input type="radio" name="A5_champion" value="CIO/CTO con interés en cyber" /><span>CIO/CTO con interés en cyber</span></label>
+          <label class="option-card"><input type="radio" name="A5_champion" value="Sponsor ejecutivo (COO/CEO)" /><span>Sponsor ejecutivo (COO/CEO)</span></label>
+          <label class="option-card"><input type="radio" name="A5_champion" value="Sería difícil encontrar champion interno" /><span>Sería difícil encontrar champion interno</span></label>
+        </div>
+        <textarea name="A5_champion_detail" rows="2" class="w-full px-4 py-2 rounded-lg mt-3" placeholder="Caracterice al champion o describa por qué sería difícil (opcional)..."></textarea>
+      </fieldset>
+    </section>
+
+    <!-- =================================================== -->
+    <!-- SECCIÓN B — Estado actual + competition (4 preguntas) -->
+    <!-- =================================================== -->
+    <section data-section="B" class="space-y-8">
+      <div class="border-t border-slate-800 pt-10">
+        <span class="section-pill bg-indigo-500/20 text-indigo-300">Sección B</span>
+        <h3 class="text-2xl font-bold mt-2 text-slate-100">Su programa actual</h3>
+        <p class="text-slate-400 text-sm mt-1">4 preguntas sobre cómo hoy evalúa email security</p>
+      </div>
+
+      <!-- B1 -->
+      <fieldset class="border border-slate-800 rounded-xl p-6 bg-slate-900/30 space-y-3">
+        <legend class="px-2 text-base font-semibold text-slate-200">
+          <span class="text-indigo-400">B1.</span> ¿Cómo evalúa hoy si su tecnología de email security funciona realmente?
+        </legend>
+        <p class="text-xs text-slate-500 mb-3">Eligí los métodos que usan</p>
+        <div class="space-y-2">
+          <label class="option-card"><input type="checkbox" name="B1_eval[]" value="Reportes mensuales del vendor (Defender/Mimecast/etc.)" /><span>Reportes mensuales del vendor</span></label>
+          <label class="option-card"><input type="checkbox" name="B1_eval[]" value="Pentest anual externo" /><span>Pentest anual externo</span></label>
+          <label class="option-card"><input type="checkbox" name="B1_eval[]" value="Red team interno" /><span>Red team interno</span></label>
+          <label class="option-card"><input type="checkbox" name="B1_eval[]" value="Phishing simulations (KnowBe4, Cofense, etc.)" /><span>Phishing simulations (KnowBe4, Cofense)</span></label>
+          <label class="option-card"><input type="checkbox" name="B1_eval[]" value="Métricas del SOC interno o MSSP" /><span>Métricas del SOC interno o MSSP</span></label>
+          <label class="option-card"><input type="checkbox" name="B1_eval[]" value="Bug bounty / responsible disclosure" /><span>Bug bounty / responsible disclosure</span></label>
+          <label class="option-card"><input type="checkbox" name="B1_eval[]" value="No evaluamos sistemáticamente, confiamos en vendor" /><span>No evaluamos sistemáticamente, confiamos en vendor</span></label>
+        </div>
+        <textarea name="B1_eval_other" rows="2" class="w-full px-4 py-2 rounded-lg mt-3" placeholder="Otro método (opcional)..."></textarea>
+      </fieldset>
+
+      <!-- B2 -->
+      <fieldset class="border border-slate-800 rounded-xl p-6 bg-slate-900/30 space-y-3">
+        <legend class="px-2 text-base font-semibold text-slate-200">
+          <span class="text-indigo-400">B2.</span> Frecuencia actual de testing adversarial de controles email
+        </legend>
+        <div class="space-y-2">
+          <label class="option-card"><input type="radio" name="B2_frequency" value="Mensual" /><span>Mensual</span></label>
+          <label class="option-card"><input type="radio" name="B2_frequency" value="Trimestral" /><span>Trimestral</span></label>
+          <label class="option-card"><input type="radio" name="B2_frequency" value="Semestral" /><span>Semestral</span></label>
+          <label class="option-card"><input type="radio" name="B2_frequency" value="Anual" /><span>Anual</span></label>
+          <label class="option-card"><input type="radio" name="B2_frequency" value="Cada 2+ años" /><span>Cada 2+ años</span></label>
+          <label class="option-card"><input type="radio" name="B2_frequency" value="Nunca o ad-hoc" /><span>Nunca o ad-hoc</span></label>
+        </div>
+        <textarea name="B2_frequency_other" rows="2" class="w-full px-4 py-2 rounded-lg mt-3" placeholder="Detalle si aplica (opcional)..."></textarea>
+      </fieldset>
+
+      <!-- B3 -->
+      <fieldset class="border border-slate-800 rounded-xl p-6 bg-slate-900/30 space-y-3">
+        <legend class="px-2 text-base font-semibold text-slate-200">
+          <span class="text-indigo-400">B3.</span> ¿Está evaluando o pensando evaluar BAS / AEAV de otros vendors en próximos 12 meses?
+        </legend>
+        <p class="text-xs text-slate-500 mb-3">Eligí los que estén en el radar</p>
+        <div class="space-y-2">
+          <label class="option-card"><input type="checkbox" name="B3_competition[]" value="Picus Security" /><span>Picus Security</span></label>
+          <label class="option-card"><input type="checkbox" name="B3_competition[]" value="AttackIQ" /><span>AttackIQ</span></label>
+          <label class="option-card"><input type="checkbox" name="B3_competition[]" value="Cymulate" /><span>Cymulate</span></label>
+          <label class="option-card"><input type="checkbox" name="B3_competition[]" value="SafeBreach" /><span>SafeBreach</span></label>
+          <label class="option-card"><input type="checkbox" name="B3_competition[]" value="Pentera" /><span>Pentera</span></label>
+          <label class="option-card"><input type="checkbox" name="B3_competition[]" value="Horizon3.ai NodeZero" /><span>Horizon3.ai NodeZero</span></label>
+          <label class="option-card"><input type="checkbox" name="B3_competition[]" value="Mandiant Security Validation" /><span>Mandiant Security Validation</span></label>
+          <label class="option-card"><input type="checkbox" name="B3_competition[]" value="No estoy evaluando alternativas hoy" /><span>No estoy evaluando alternativas hoy</span></label>
+        </div>
+        <textarea name="B3_competition_other" rows="2" class="w-full px-4 py-2 rounded-lg mt-3" placeholder="Otros vendors en evaluación (opcional)..."></textarea>
+      </fieldset>
+
+      <!-- B4 -->
+      <fieldset class="border border-slate-800 rounded-xl p-6 bg-slate-900/30 space-y-3">
+        <legend class="px-2 text-base font-semibold text-slate-200">
+          <span class="text-indigo-400">B4.</span> ¿Cómo está estructurado su SOC?
+        </legend>
+        <div class="space-y-2">
+          <label class="option-card"><input type="radio" name="B4_soc" value="SOC in-house dedicado 24/7" /><span>SOC in-house dedicado 24/7</span></label>
+          <label class="option-card"><input type="radio" name="B4_soc" value="SOC in-house horario extendido (no 24/7)" /><span>SOC in-house horario extendido (no 24/7)</span></label>
+          <label class="option-card"><input type="radio" name="B4_soc" value="MSSP / SOC tercerizado completo" /><span>MSSP / SOC tercerizado completo</span></label>
+          <label class="option-card"><input type="radio" name="B4_soc" value="Híbrido (in-house + MSSP)" /><span>Híbrido (in-house + MSSP)</span></label>
+          <label class="option-card"><input type="radio" name="B4_soc" value="Equipo IT con responsabilidad cyber (no SOC formal)" /><span>Equipo IT con responsabilidad cyber (no SOC formal)</span></label>
+        </div>
+        <textarea name="B4_soc_other" rows="2" class="w-full px-4 py-2 rounded-lg mt-3" placeholder="Detalle (opcional)..."></textarea>
+      </fieldset>
+    </section>
+
+    <!-- =================================================== -->
+    <!-- SECCIÓN C — Concerns y riesgos (4 preguntas) -->
+    <!-- =================================================== -->
+    <section data-section="C" class="space-y-8">
+      <div class="border-t border-slate-800 pt-10">
+        <span class="section-pill bg-rose-500/20 text-rose-300">Sección C</span>
+        <h3 class="text-2xl font-bold mt-2 text-slate-100">Concerns y riesgos</h3>
+        <p class="text-slate-400 text-sm mt-1">4 preguntas sobre qué le preocupa de una validation adversarial</p>
+      </div>
+
+      <!-- C1 -->
+      <fieldset class="border border-slate-800 rounded-xl p-6 bg-slate-900/30 space-y-3">
+        <legend class="px-2 text-base font-semibold text-slate-200">
+          <span class="text-rose-400">C1.</span> Top 3 riesgos percibidos en una validation AEAV (priorizá los más importantes)
+        </legend>
+        <p class="text-xs text-slate-500 mb-3">Marcá solo hasta 3 — forzá la priorización</p>
+        <div class="space-y-2">
+          <label class="option-card"><input type="checkbox" name="C1_risks[]" value="Reputacional (filtración a medios)" data-max="3" /><span>Reputacional (filtración a medios)</span></label>
+          <label class="option-card"><input type="checkbox" name="C1_risks[]" value="Compliance / regulatorio" data-max="3" /><span>Compliance / regulatorio</span></label>
+          <label class="option-card"><input type="checkbox" name="C1_risks[]" value="Operacional (falsos positivos SOC, ruido)" data-max="3" /><span>Operacional (falsos positivos SOC, ruido)</span></label>
+          <label class="option-card"><input type="checkbox" name="C1_risks[]" value="Empleados se sienten vigilados / RRHH backlash" data-max="3" /><span>Empleados se sienten vigilados / RRHH backlash</span></label>
+          <label class="option-card"><input type="checkbox" name="C1_risks[]" value="Legal (demanda terceros, supply chain)" data-max="3" /><span>Legal (demanda terceros, supply chain)</span></label>
+          <label class="option-card"><input type="checkbox" name="C1_risks[]" value="Técnico (algo se rompe en producción)" data-max="3" /><span>Técnico (algo se rompe en producción)</span></label>
+          <label class="option-card"><input type="checkbox" name="C1_risks[]" value="Costo no justificado" data-max="3" /><span>Costo no justificado</span></label>
+        </div>
+        <textarea name="C1_risks_other" rows="2" class="w-full px-4 py-2 rounded-lg mt-3" placeholder="Otro riesgo crítico (opcional)..."></textarea>
+      </fieldset>
+
+      <!-- C2 -->
+      <fieldset class="border border-slate-800 rounded-xl p-6 bg-slate-900/30 space-y-3">
+        <legend class="px-2 text-base font-semibold text-slate-200">
+          <span class="text-rose-400">C2.</span> Vectores que NO autorizaría aunque sean técnicamente viables
+        </legend>
+        <p class="text-xs text-slate-500 mb-3">Eligí todos los que apliquen</p>
+        <div class="space-y-2">
+          <label class="option-card"><input type="checkbox" name="C2_no_authorize[]" value="Supply chain (impersonar vendors reales suyos)" /><span>Supply chain (impersonar vendors reales suyos)</span></label>
+          <label class="option-card"><input type="checkbox" name="C2_no_authorize[]" value="Deepfakes de CEO / directorio" /><span>Deepfakes de CEO / directorio</span></label>
+          <label class="option-card"><input type="checkbox" name="C2_no_authorize[]" value="Impersonar reguladores (BCRA, AFIP, UIF, SAT, etc.)" /><span>Impersonar reguladores</span></label>
+          <label class="option-card"><input type="checkbox" name="C2_no_authorize[]" value="PII real de empleados en pretextos" /><span>PII real de empleados en pretextos</span></label>
+          <label class="option-card"><input type="checkbox" name="C2_no_authorize[]" value="Pretexts dirigidos a empleados específicos identificados" /><span>Pretexts dirigidos a empleados específicos identificados</span></label>
+          <label class="option-card"><input type="checkbox" name="C2_no_authorize[]" value="Captura de credenciales reales (aunque sea token)" /><span>Captura de credenciales reales (aunque sea token)</span></label>
+          <label class="option-card"><input type="checkbox" name="C2_no_authorize[]" value="Ataques nivel 5 (supply chain SolarWinds-style)" /><span>Ataques nivel 5 (supply chain SolarWinds-style)</span></label>
+          <label class="option-card"><input type="checkbox" name="C2_no_authorize[]" value="Ninguno — autorizo cualquier vector con scope claro" /><span>Ninguno — autorizo cualquier vector con scope claro</span></label>
+        </div>
+        <textarea name="C2_no_authorize_other" rows="2" class="w-full px-4 py-2 rounded-lg mt-3" placeholder="Otros vectores que no autorizaría (opcional)..."></textarea>
+      </fieldset>
+
+      <!-- C3 -->
+      <fieldset class="border border-slate-800 rounded-xl p-6 bg-slate-900/30 space-y-3">
+        <legend class="px-2 text-base font-semibold text-slate-200">
+          <span class="text-rose-400">C3.</span> Nivel de preocupación por riesgo reputacional si la validation se filtra
+        </legend>
+        <div class="space-y-2">
+          <label class="option-card"><input type="radio" name="C3_reputational" value="Crítica - primera prioridad mitigar" /><span>Crítica — primera prioridad mitigar</span></label>
+          <label class="option-card"><input type="radio" name="C3_reputational" value="Alta - importante pero gestionable" /><span>Alta — importante pero gestionable</span></label>
+          <label class="option-card"><input type="radio" name="C3_reputational" value="Media - estándar de cualquier proyecto" /><span>Media — estándar de cualquier proyecto</span></label>
+          <label class="option-card"><input type="radio" name="C3_reputational" value="Baja - no es mi top concern" /><span>Baja — no es mi top concern</span></label>
+        </div>
+      </fieldset>
+
+      <!-- C4 -->
+      <fieldset class="border border-slate-800 rounded-xl p-6 bg-slate-900/30 space-y-3">
+        <legend class="px-2 text-base font-semibold text-slate-200">
+          <span class="text-rose-400">C4.</span> Top 3 garantías mínimas que necesita para autorizar (forzá priorización)
+        </legend>
+        <p class="text-xs text-slate-500 mb-3">Marcá solo hasta 3 — el resto se asume como nice-to-have</p>
+        <div class="space-y-2">
+          <label class="option-card"><input type="checkbox" name="C4_warranties[]" value="E&O Insurance mínimo $1M USD" data-max="3" /><span>E&O Insurance mínimo $1M USD</span></label>
+          <label class="option-card"><input type="checkbox" name="C4_warranties[]" value="Escrow de código / continuity clause" data-max="3" /><span>Escrow de código / continuity clause</span></label>
+          <label class="option-card"><input type="checkbox" name="C4_warranties[]" value="NDA mutual reforzado" data-max="3" /><span>NDA mutual reforzado</span></label>
+          <label class="option-card"><input type="checkbox" name="C4_warranties[]" value="Embargo period para casos públicos" data-max="3" /><span>Embargo period para casos públicos</span></label>
+          <label class="option-card"><input type="checkbox" name="C4_warranties[]" value="Right-to-review report ejecutivo antes de entrega" data-max="3" /><span>Right-to-review report ejecutivo antes de entrega</span></label>
+          <label class="option-card"><input type="checkbox" name="C4_warranties[]" value="Cláusula de daños y perjuicios por filtración" data-max="3" /><span>Cláusula de daños y perjuicios por filtración</span></label>
+          <label class="option-card"><input type="checkbox" name="C4_warranties[]" value="Audit trail mostrable a regulador" data-max="3" /><span>Audit trail mostrable a regulador</span></label>
+          <label class="option-card"><input type="checkbox" name="C4_warranties[]" value="Zero credential capture documentado" data-max="3" /><span>Zero credential capture documentado</span></label>
+        </div>
+        <textarea name="C4_warranties_other" rows="2" class="w-full px-4 py-2 rounded-lg mt-3" placeholder="Otras garantías (opcional)..."></textarea>
+      </fieldset>
+    </section>
+
+    <!-- =================================================== -->
+    <!-- SECCIÓN D — Compliance esencial (3 preguntas) -->
+    <!-- =================================================== -->
+    <section data-section="D" class="space-y-8">
+      <div class="border-t border-slate-800 pt-10">
+        <span class="section-pill bg-emerald-500/20 text-emerald-300">Sección D</span>
+        <h3 class="text-2xl font-bold mt-2 text-slate-100">Compliance esencial</h3>
+        <p class="text-slate-400 text-sm mt-1">3 preguntas legales (no específicas de su jurisdicción)</p>
+      </div>
+
+      <!-- D1 -->
+      <fieldset class="border border-slate-800 rounded-xl p-6 bg-slate-900/30 space-y-3">
+        <legend class="px-2 text-base font-semibold text-slate-200">
+          <span class="text-emerald-400">D1.</span> Categorías de frameworks regulatorios aplicables a su organización
+        </legend>
+        <p class="text-xs text-slate-500 mb-3">Marcá las categorías que apliquen (no detalles específicos)</p>
+        <div class="space-y-2">
+          <label class="option-card"><input type="checkbox" name="D1_frameworks[]" value="Data privacy LATAM (LGPD, 25.326, 1581, LFPDPPP, 19.628)" /><span>Data privacy LATAM (LGPD / 25.326 / 1581 / LFPDPPP / 19.628)</span></label>
+          <label class="option-card"><input type="checkbox" name="D1_frameworks[]" value="Sectorial banking LATAM (BCRA / SUSEP / SBS / CNBV)" /><span>Sectorial banking LATAM (BCRA / SUSEP / SBS / CNBV)</span></label>
+          <label class="option-card"><input type="checkbox" name="D1_frameworks[]" value="Internacional data privacy (GDPR, CCPA)" /><span>Internacional data privacy (GDPR / CCPA)</span></label>
+          <label class="option-card"><input type="checkbox" name="D1_frameworks[]" value="PCI-DSS" /><span>PCI-DSS</span></label>
+          <label class="option-card"><input type="checkbox" name="D1_frameworks[]" value="HIPAA / healthcare regulatory" /><span>HIPAA / healthcare regulatory</span></label>
+          <label class="option-card"><input type="checkbox" name="D1_frameworks[]" value="SOX" /><span>SOX</span></label>
+          <label class="option-card"><input type="checkbox" name="D1_frameworks[]" value="ISO 27001 (certificado)" /><span>ISO 27001 (certificado)</span></label>
+          <label class="option-card"><input type="checkbox" name="D1_frameworks[]" value="NIST CSF / NIST 800-53" /><span>NIST CSF / NIST 800-53</span></label>
+        </div>
+        <textarea name="D1_frameworks_other" rows="2" class="w-full px-4 py-2 rounded-lg mt-3" placeholder="Otros frameworks específicos (opcional)..."></textarea>
+      </fieldset>
+
+      <!-- D2 -->
+      <fieldset class="border border-slate-800 rounded-xl p-6 bg-slate-900/30 space-y-3">
+        <legend class="px-2 text-base font-semibold text-slate-200">
+          <span class="text-emerald-400">D2.</span> Para autorizar testing adversarial, ¿qué tipo de firma necesita el documento?
+        </legend>
+        <p class="text-xs text-slate-500 mb-3">Eligí las que apliquen</p>
+        <div class="space-y-2">
+          <label class="option-card"><input type="checkbox" name="D2_signature[]" value="Firma manuscrita escaneada" /><span>Firma manuscrita escaneada</span></label>
+          <label class="option-card"><input type="checkbox" name="D2_signature[]" value="Firma digital simple (PDF firmado con software)" /><span>Firma digital simple (PDF firmado)</span></label>
+          <label class="option-card"><input type="checkbox" name="D2_signature[]" value="Firma digital cualificada (ONTI/ICP-Brasil/SAT)" /><span>Firma digital cualificada (ONTI / ICP-Brasil / SAT)</span></label>
+          <label class="option-card"><input type="checkbox" name="D2_signature[]" value="DocuSign / Adobe Sign" /><span>DocuSign / Adobe Sign</span></label>
+          <label class="option-card"><input type="checkbox" name="D2_signature[]" value="Doble firma (CISO + Risk Officer / Legal)" /><span>Doble firma (CISO + Risk Officer / Legal)</span></label>
+        </div>
+        <textarea name="D2_signature_other" rows="2" class="w-full px-4 py-2 rounded-lg mt-3" placeholder="Otro requisito (opcional)..."></textarea>
+      </fieldset>
+
+      <!-- D3 -->
+      <fieldset class="border border-slate-800 rounded-xl p-6 bg-slate-900/30 space-y-3">
+        <legend class="px-2 text-base font-semibold text-slate-200">
+          <span class="text-emerald-400">D3.</span> ¿Necesita templates legales país-específicos pre-aprobados?
+        </legend>
+        <div class="space-y-2">
+          <label class="option-card"><input type="radio" name="D3_templates" value="Sí, es bloqueante sin esto" /><span>Sí, es bloqueante sin esto</span></label>
+          <label class="option-card"><input type="radio" name="D3_templates" value="Sí, ahorra mucho tiempo pero no bloqueante" /><span>Sí, ahorra mucho tiempo pero no bloqueante</span></label>
+          <label class="option-card"><input type="radio" name="D3_templates" value="Indiferente, nuestro legal arma desde cero igual" /><span>Indiferente, nuestro legal arma desde cero igual</span></label>
+          <label class="option-card"><input type="radio" name="D3_templates" value="No, tenemos templates propios" /><span>No, tenemos templates propios</span></label>
+        </div>
+        <textarea name="D3_templates_detail" rows="2" class="w-full px-4 py-2 rounded-lg mt-3" placeholder="Comentarios sobre proceso legal (opcional)..."></textarea>
+      </fieldset>
+    </section>
+
+    <!-- =================================================== -->
+    <!-- SECCIÓN E — Decision process + features (3 preguntas) -->
+    <!-- =================================================== -->
+    <section data-section="E" class="space-y-8">
+      <div class="border-t border-slate-800 pt-10">
+        <span class="section-pill bg-amber-500/20 text-amber-300">Sección E</span>
+        <h3 class="text-2xl font-bold mt-2 text-slate-100">Decisión y features</h3>
+        <p class="text-slate-400 text-sm mt-1">3 preguntas sobre proceso interno y prioridades de features</p>
+      </div>
+
+      <!-- E1 -->
+      <fieldset class="border border-slate-800 rounded-xl p-6 bg-slate-900/30 space-y-3">
+        <legend class="px-2 text-base font-semibold text-slate-200">
+          <span class="text-amber-400">E1.</span> Describa las 3-5 etapas formales típicas desde decisión hasta PO firmada en su organización
+        </legend>
+        <p class="text-xs text-slate-500 mb-3">Ejemplo: POC → security review → legal → procurement → board approval</p>
+        <textarea name="E1_decision_process" rows="3" class="w-full px-4 py-3 rounded-lg" placeholder="Sus etapas típicas..."></textarea>
+      </fieldset>
+
+      <!-- E2 -->
+      <fieldset class="border border-slate-800 rounded-xl p-6 bg-slate-900/30 space-y-4">
+        <legend class="px-2 text-base font-semibold text-slate-200">
+          <span class="text-amber-400">E2.</span> De estas 6 features, marcá las TOP 3 sin las que NO compraría
+        </legend>
+        <p class="text-xs text-slate-500 mb-3">Forzá priorización — máximo 3</p>
+        <div class="space-y-2">
+          <label class="option-card"><input type="checkbox" name="E2_top_features[]" value="Reporte ejecutivo para board (tono Challenger, español)" data-max="3" /><span><strong>Reporte ejecutivo para board</strong> (tono Challenger, español)</span></label>
+          <label class="option-card"><input type="checkbox" name="E2_top_features[]" value="Reporte técnico para SOC (TTPs, IOCs, kill chain)" data-max="3" /><span><strong>Reporte técnico para SOC</strong> (TTPs, IOCs, kill chain)</span></label>
+          <label class="option-card"><input type="checkbox" name="E2_top_features[]" value="Audit trail inmutable mostrable a regulador" data-max="3" /><span><strong>Audit trail inmutable</strong> mostrable a regulador</span></label>
+          <label class="option-card"><input type="checkbox" name="E2_top_features[]" value="Integración SIEM (Splunk/Sentinel/QRadar/Chronicle)" data-max="3" /><span><strong>Integración SIEM</strong> (Splunk/Sentinel/QRadar/Chronicle)</span></label>
+          <label class="option-card"><input type="checkbox" name="E2_top_features[]" value="Benchmark anónimo vs peers LATAM en mi sector" data-max="3" /><span><strong>Benchmark anónimo</strong> vs peers LATAM en mi sector</span></label>
+          <label class="option-card"><input type="checkbox" name="E2_top_features[]" value="Templates legales país-específicos pre-aprobados" data-max="3" /><span><strong>Templates legales país-específicos</strong> pre-aprobados</span></label>
+        </div>
+      </fieldset>
+
+      <!-- E3 -->
+      <fieldset class="border border-slate-800 rounded-xl p-6 bg-slate-900/30 space-y-3">
+        <legend class="px-2 text-base font-semibold text-slate-200">
+          <span class="text-amber-400">E3.</span> ¿Falta integración mandatory que no consideramos para que usted pueda comprar?
+        </legend>
+        <textarea name="E3_integrations_missing" rows="3" class="w-full px-4 py-3 rounded-lg" placeholder="Ej: 'sin integración con nuestro ServiceNow no podemos operar' (opcional si no aplica)..."></textarea>
+      </fieldset>
+    </section>
+
+    <!-- =================================================== -->
+    <!-- SECCIÓN F — Demografía mínima (3 preguntas) -->
+    <!-- =================================================== -->
+    <section data-section="F" class="space-y-8">
+      <div class="border-t border-slate-800 pt-10">
+        <span class="section-pill bg-slate-500/20 text-slate-300">Sección F</span>
+        <h3 class="text-2xl font-bold mt-2 text-slate-100">Sobre usted (3 preguntas, último tramo)</h3>
+        <p class="text-slate-400 text-sm mt-1">Para contextualizar respuestas — solo agregados anónimos</p>
+      </div>
+
+      <!-- F1 -->
+      <fieldset class="border border-slate-800 rounded-xl p-6 bg-slate-900/30 space-y-3">
+        <legend class="px-2 text-base font-semibold text-slate-200">
+          <span class="text-slate-400">F1.</span> Industria/sector
+        </legend>
+        <div class="space-y-2">
+          <label class="option-card"><input type="radio" name="F1_industry" value="Banca / Servicios financieros" /><span>Banca / Servicios financieros</span></label>
+          <label class="option-card"><input type="radio" name="F1_industry" value="Aerolíneas / Transporte" /><span>Aerolíneas / Transporte</span></label>
+          <label class="option-card"><input type="radio" name="F1_industry" value="Retail / E-commerce" /><span>Retail / E-commerce</span></label>
+          <label class="option-card"><input type="radio" name="F1_industry" value="Energía / Utilities" /><span>Energía / Utilities</span></label>
+          <label class="option-card"><input type="radio" name="F1_industry" value="Salud / Pharma" /><span>Salud / Pharma</span></label>
+          <label class="option-card"><input type="radio" name="F1_industry" value="Gobierno / Sector público" /><span>Gobierno / Sector público</span></label>
+          <label class="option-card"><input type="radio" name="F1_industry" value="Telco" /><span>Telco</span></label>
+          <label class="option-card"><input type="radio" name="F1_industry" value="Tecnología / SaaS" /><span>Tecnología / SaaS</span></label>
+          <label class="option-card"><input type="radio" name="F1_industry" value="Otro" /><span>Otro</span></label>
+        </div>
+        <textarea name="F1_industry_other" rows="2" class="w-full px-4 py-2 rounded-lg mt-3" placeholder="Si eligió 'Otro' (opcional)..."></textarea>
+      </fieldset>
+
+      <!-- F2 -->
+      <fieldset class="border border-slate-800 rounded-xl p-6 bg-slate-900/30 space-y-3">
+        <legend class="px-2 text-base font-semibold text-slate-200">
+          <span class="text-slate-400">F2.</span> Tamaño de organización
+        </legend>
+        <div class="space-y-2">
+          <label class="option-card"><input type="radio" name="F2_size" value="< 500 empleados" /><span>Menos de 500 empleados</span></label>
+          <label class="option-card"><input type="radio" name="F2_size" value="500 - 2,000 empleados" /><span>500 - 2,000 empleados</span></label>
+          <label class="option-card"><input type="radio" name="F2_size" value="2,001 - 5,000 empleados" /><span>2,001 - 5,000 empleados</span></label>
+          <label class="option-card"><input type="radio" name="F2_size" value="5,001 - 15,000 empleados" /><span>5,001 - 15,000 empleados</span></label>
+          <label class="option-card"><input type="radio" name="F2_size" value="15,000+ empleados" /><span>15,000+ empleados</span></label>
+        </div>
+      </fieldset>
+
+      <!-- F3 -->
+      <fieldset class="border border-slate-800 rounded-xl p-6 bg-slate-900/30 space-y-3">
+        <legend class="px-2 text-base font-semibold text-slate-200">
+          <span class="text-slate-400">F3.</span> Su rol
+        </legend>
+        <div class="space-y-2">
+          <label class="option-card"><input type="radio" name="F3_role" value="CISO" /><span>CISO</span></label>
+          <label class="option-card"><input type="radio" name="F3_role" value="CIO con responsabilidad cyber" /><span>CIO con responsabilidad cyber</span></label>
+          <label class="option-card"><input type="radio" name="F3_role" value="Director / Manager Cybersecurity" /><span>Director / Manager Cybersecurity</span></label>
+          <label class="option-card"><input type="radio" name="F3_role" value="Head of IT Security" /><span>Head of IT Security</span></label>
+          <label class="option-card"><input type="radio" name="F3_role" value="Risk Officer / GRC Lead" /><span>Risk Officer / GRC Lead</span></label>
+          <label class="option-card"><input type="radio" name="F3_role" value="Otro" /><span>Otro</span></label>
+        </div>
+        <textarea name="F3_role_other" rows="2" class="w-full px-4 py-2 rounded-lg mt-3" placeholder="Si eligió 'Otro' (opcional)..."></textarea>
+      </fieldset>
+    </section>
+
+    <!-- =================================================== -->
+    <!-- SECCIÓN G — Cierre (2 preguntas) -->
+    <!-- =================================================== -->
+    <section data-section="G" class="space-y-8">
+      <div class="border-t border-slate-800 pt-10">
+        <span class="section-pill bg-fuchsia-500/20 text-fuchsia-300">Sección G</span>
+        <h3 class="text-2xl font-bold mt-2 text-slate-100">Cierre</h3>
+        <p class="text-slate-400 text-sm mt-1">2 preguntas finales — ya casi termina</p>
+      </div>
+
+      <!-- G1 -->
+      <fieldset class="border border-slate-800 rounded-xl p-6 bg-slate-900/30 space-y-3">
+        <legend class="px-2 text-base font-semibold text-slate-200">
+          <span class="text-fuchsia-400">G1.</span> ¿Qué le sorprendió positivamente o le preocupa más de Aurora?
+        </legend>
+        <p class="text-xs text-slate-500 mb-2">Texto libre — lo que le venga a la mente</p>
+        <textarea name="G1_open_feedback" rows="4" class="w-full px-4 py-3 rounded-lg" placeholder="Su feedback honesto..."></textarea>
+      </fieldset>
+
+      <!-- G2 -->
+      <fieldset class="border border-slate-800 rounded-xl p-6 bg-slate-900/30 space-y-3">
+        <legend class="px-2 text-base font-semibold text-slate-200">
+          <span class="text-fuchsia-400">G2.</span> ¿Le interesaría una segunda llamada de 30 min con escenario aplicado a su industria específica?
+        </legend>
+        <div class="space-y-2">
+          <label class="option-card"><input type="radio" name="G2_second_call" value="Sí, definitivamente" /><span>Sí, definitivamente</span></label>
+          <label class="option-card"><input type="radio" name="G2_second_call" value="Tal vez en próximos 2-3 meses" /><span>Tal vez en próximos 2-3 meses</span></label>
+          <label class="option-card"><input type="radio" name="G2_second_call" value="Esperar hasta que el producto esté más maduro" /><span>Esperar hasta que el producto esté más maduro</span></label>
+          <label class="option-card"><input type="radio" name="G2_second_call" value="No por ahora" /><span>No por ahora</span></label>
+        </div>
+        <div class="mt-4 pt-4 border-t border-slate-800 space-y-3">
+          <p class="text-sm text-slate-400">Si quiere que le enviemos el benchmark anónimo + sneak preview, déjenos un email de contacto (opcional):</p>
+          <input type="text" name="contact_email" class="w-full px-4 py-3 rounded-lg" placeholder="su email corporativo (opcional)" />
+        </div>
+      </fieldset>
+    </section>
+
+    <!-- SUBMIT -->
+    <div class="border-t border-slate-800 pt-10">
+      <button type="submit" id="submitBtn" class="w-full bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white font-semibold py-4 px-6 rounded-xl text-lg transition shadow-lg shadow-purple-500/20">
+        Enviar respuestas
+      </button>
+      <p class="text-center text-xs text-slate-500 mt-4">
+        Al enviar acepta los términos de confidencialidad descritos arriba.
+        Recibirá email de confirmación.
+      </p>
+    </div>
+  </form>
+
+  <!-- FOOTER -->
+  <footer class="mt-16 pt-8 border-t border-slate-800 text-center text-sm text-slate-500">
+    <p>Aurora — Adversarial Email Attack Validation</p>
+    <p class="mt-1">Encuesta v0.2 · 2026 · Confidencial</p>
+  </footer>
+
+</main>
+
+<script>
+  // Auto-save a localStorage
+  const form = document.getElementById('surveyForm');
+  const STORAGE_KEY = 'aurora-ciso-survey-draft';
+
+  // Restore on load
+  try {
+    const saved = localStorage.getItem(STORAGE_KEY);
+    if (saved) {
+      const data = JSON.parse(saved);
+      Object.entries(data).forEach(([name, val]) => {
+        const inputs = form.querySelectorAll(`[name="${name}"], [name="${name}[]"]`);
+        inputs.forEach(input => {
+          if (input.type === 'radio' || input.type === 'checkbox') {
+            if (Array.isArray(val)) {
+              if (val.includes(input.value)) input.checked = true;
+            } else if (input.value === val) {
+              input.checked = true;
+            }
+          } else {
+            input.value = val;
+          }
+        });
+      });
+    }
+  } catch (e) { console.warn('No saved draft', e); }
+
+  // Save on change
+  form.addEventListener('input', () => {
+    const formData = new FormData(form);
+    const data = {};
+    for (const [key, val] of formData.entries()) {
+      if (key.endsWith('[]')) {
+        const baseKey = key.slice(0, -2);
+        if (!data[baseKey]) data[baseKey] = [];
+        data[baseKey].push(val);
+      } else {
+        data[key] = val;
+      }
+    }
+    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(data)); } catch (e) {}
+    updateProgress();
+  });
+
+  // Progress bar
+  function updateProgress() {
+    const all = form.querySelectorAll('input[type="radio"], input[type="checkbox"], textarea, input[type="text"]');
+    const groups = new Set();
+    const answered = new Set();
+    all.forEach(el => {
+      const baseName = el.name.replace('[]', '');
+      groups.add(baseName);
+      if (el.type === 'radio' || el.type === 'checkbox') {
+        if (el.checked) answered.add(baseName);
+      } else if (el.value.trim().length > 0) {
+        answered.add(baseName);
+      }
+    });
+    const pct = groups.size > 0 ? Math.round((answered.size / groups.size) * 100) : 0;
+    document.getElementById('progress').style.width = pct + '%';
+  }
+
+  // Max-3 enforcement for forced-ranking questions
+  form.querySelectorAll('input[type="checkbox"][data-max="3"]').forEach(cb => {
+    cb.addEventListener('change', () => {
+      const name = cb.name;
+      const checked = form.querySelectorAll(`input[type="checkbox"][name="${name}"]:checked`);
+      if (checked.length > 3) {
+        cb.checked = false;
+        alert('Máximo 3 opciones para forzar priorización.');
+      }
+    });
+  });
+
+  // Clear localStorage on submit
+  form.addEventListener('submit', () => {
+    try { localStorage.removeItem(STORAGE_KEY); } catch (e) {}
+  });
+
+  updateProgress();
+</script>
+
+</body>
+</html>
