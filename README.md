@@ -1,31 +1,36 @@
 # Aurora — CISO LATAM Survey
 
-Encuesta pública para validación de propuesta producto con CISOs LATAM.
+Landing page que redirige al Google Form oficial de la encuesta CISO LATAM.
 
-**URL:** https://dardilap.github.io/aurora-survey/
+**URL pública:** https://dardilap.github.io/aurora-survey/
+→ redirige automáticamente a Google Form:
+https://docs.google.com/forms/d/e/1FAIpQLSc7F1ZQxW66l_fLyxdmUDTV9SYXUtKQSsiZrAJlIQ9L1D61qw/viewform
 
-## Setup
+## Por qué Google Forms (vs HTML custom)
 
-Form action target: `https://formsubmit.co/dardilap@gmail.com`
-
-**IMPORTANTE — Activación primera vez:**
-1. Owner debe completar la encuesta una vez con datos de prueba
-2. Recibirá email de formsubmit.co con link de activación
-3. Clickear el link para autorizar recepción de respuestas reales
-4. Después de eso, todas las respuestas llegan al email automáticamente
+- Google infra (99.99% uptime) — sin outages como formsubmit.co
+- Respuestas en Google Sheet automático
+- Email notifications nativas
+- Sin dependencias externas (Cloudflare, formsubmit, etc.)
+- Owner full control (editar form, exportar respuestas)
 
 ## Estructura
 
-- `index.html` — encuesta principal (22 preguntas, 7 secciones)
-- `thank-you.html` — landing post-submit
+- `index.html` — landing con branding Aurora + redirect inmediato a Google Form
+  - JS redirect en 300ms (para alcanzar a ver branding)
+  - Meta refresh en 2s (fallback si JS off)
+  - Link manual visible como último fallback
 
-## Confidencialidad
+## Por qué mantener esta URL como wrapper
 
-Las respuestas individuales nunca se comparten. Solo agregados anónimos con n>=5.
+- Una sola URL canónica para distribución (`dardilap.github.io/aurora-survey/`)
+- Posible cambio futuro del Google Form sin tener que re-distribuir URL
+- Branding Aurora visible 300ms antes de aterrizar en Google
+- Posible analytics/tracking si se agrega en el futuro
 
-## Stack
+## Cambiar el Google Form destino
 
-- HTML5 + Tailwind CDN (sin build)
-- formsubmit.co para envío (gratis, sin auth requerida)
-- localStorage para autoguardar progreso
-- Mobile-responsive + dark mode
+Editar el URL en 3 lugares del `index.html`:
+1. `<meta http-equiv="refresh" content="2; url=...">`
+2. `window.location.replace('...')` en `<script>`
+3. `<a href="...">` del link manual
